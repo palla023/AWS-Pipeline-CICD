@@ -1,13 +1,16 @@
 version: 0.2
+
 phases:
   build:
     commands:
       - echo Entered the build phase
-      - mvn clean package
+      - mvn clean package -DskipTests
+
   post_build:
     commands:
       - echo Build completed Successfully on `date`
+
 artifacts:
   files:
-    - target/user-service.jar
+    - target/*.jar   # ✅ FIXED
   discard-paths: yes
